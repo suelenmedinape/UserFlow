@@ -1,0 +1,13 @@
+FROM node:22-bookworm
+
+WORKDIR /app
+
+# Instala as dependências do sistema para o Playwright
+# O comando install-deps precisa do playwright instalado no node_modules
+# então fazemos um install temporário para rodar o setup do sistema
+RUN npm install @vitest/browser-playwright playwright && \
+    npx playwright install-deps && \
+    npx playwright install chromium && \
+    npm uninstall @vitest/browser-playwright playwright
+
+# O restante das dependências será instalado via volume/command no compose

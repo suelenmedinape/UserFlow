@@ -1,6 +1,8 @@
 services:
   test:
-    image: mcr.microsoft.com/playwright:v1.48.0-noble
+    build:
+      context: .
+      dockerfile: Dockerfile.test
     volumes:
       - ./UserFlow:/app
       - /app/node_modules # Evita sobrescrever node_modules do container com o do host
