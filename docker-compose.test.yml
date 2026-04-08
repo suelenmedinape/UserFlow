@@ -7,5 +7,5 @@ services:
     working_dir: /app
     environment:
       - NODE_ENV=test
-    # Instala dependências se necessário e roda os testes no modo browser headless
-    command: /bin/sh -c "npm install && npx vitest run --browser.name=chromium --browser.headless"
+    # Usa ng test para aproveitar a configuração do Angular CLI e do Vitest
+    command: /bin/sh -c "npm install && npx ng test --watch=false --browsers=chromium --headless"
