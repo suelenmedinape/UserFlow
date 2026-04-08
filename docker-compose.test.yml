@@ -1,0 +1,11 @@
+services:
+  test:
+    image: mcr.microsoft.com/playwright:v1.48.0-noble
+    volumes:
+      - ./UserFlow:/app
+      - /app/node_modules # Evita sobrescrever node_modules do container com o do host
+    working_dir: /app
+    environment:
+      - NODE_ENV=test
+    # Instala dependências se necessário e roda os testes no modo browser headless
+    command: /bin/sh -c "npm install && npx vitest run --browser.name=chromium --browser.headless"

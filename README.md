@@ -11,19 +11,22 @@ Esta aplicação está preparada para rodar em qualquer ambiente utilizando Dock
 
 ### Como executar
 
-1. **Clone o repositório** (se ainda não o fez):
-   ```bash
-   git clone https://github.com/suelenmedinape/UserFlow.git
-   cd UserFlow
-   ```
-
-2. **Inicie o container**:
+1. **Inicie a aplicação**:
    ```bash
    docker compose up -d
    ```
 
-3. **Acesse a aplicação**:
+2. **Acesse a aplicação**:
    Abra seu navegador em [http://localhost:8080](http://localhost:8080).
+
+### Rodando Testes (Docker)
+
+Para rodar os testes sem precisar configurar dependências de navegador na sua máquina local:
+
+```bash
+docker compose -f docker-compose.test.yml run test
+```
+Este comando baixa a imagem oficial do Playwright, instala as dependências e executa o Vitest em modo headless.
 
 ### Comandos úteis
 
