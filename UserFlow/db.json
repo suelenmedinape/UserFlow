@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "email": "ana.ferreira@yahoo.com",
-      "name": "Ana Paula Ferreira",
+      "email": "ana.ferreiras@yahoo.com",
+      "name": "Ana Paula Ferreiras",
       "cpf": "123.456.789-00",
       "phone": "(11) 98765-4321",
       "phoneType": "CELULAR",
@@ -111,6 +111,14 @@
       "phone": "1234567895",
       "phoneType": "FIXO",
       "id": "Kv0ZepLQu5M"
+    },
+    {
+      "email": "teste@gmail.com",
+      "name": "Teste Attus",
+      "cpf": "12345678900",
+      "phone": "1234567896",
+      "phoneType": "CELULAR",
+      "id": "6ugs1gn8IUo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
