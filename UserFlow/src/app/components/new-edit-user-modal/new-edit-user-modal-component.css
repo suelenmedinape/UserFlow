@@ -1,0 +1,62 @@
+:host {
+  display: block;
+}
+
+.dialog-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #333;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.flex-field {
+  flex: 2;
+}
+
+.select-field {
+  flex: 1;
+}
+
+.helper-text {
+  font-style: italic;
+  color: #1976d2; 
+  font-size: 13px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.dialog-actions {
+  padding: 0 24px 24px 24px;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+  min-height: auto;
+}
+
+.save-btn {
+  width: 120px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+::ng-deep .mat-mdc-dialog-content {
+  padding-bottom: 0;
+}

@@ -1,0 +1,91 @@
+.toolbar-gray {
+  background-color: #555555 !important;
+  color: white !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+.burger-white {
+  color: white !important;
+}
+
+.title-white {
+  color: white !important;
+  margin-right: 32px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.custom-search {
+  margin-left: 300px;
+  width: 500px;
+}
+
+::ng-deep .custom-search .mdc-text-field--outlined {
+  background-color: #6a6a6a !important; 
+  border-radius: 4px;
+  height: 36px !important; 
+}
+
+::ng-deep .custom-search .mat-mdc-form-field-flex {
+  height: 36px !important;
+  align-items: center !important; 
+}
+
+::ng-deep .custom-search .mat-mdc-form-field-infix {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: auto !important;
+}
+
+::ng-deep .custom-search .mat-icon {
+  font-size: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  line-height: 20px !important;
+}
+
+::ng-deep .custom-search .mdc-notched-outline__leading,
+::ng-deep .custom-search .mdc-notched-outline__notch,
+::ng-deep .custom-search .mdc-notched-outline__trailing {
+  border-color: transparent !important; 
+}
+::ng-deep .custom-search input, 
+::ng-deep .custom-search mat-icon {
+  color: white !important;
+}
+::ng-deep .custom-search input::placeholder {
+  color: #cccccc !important;
+}
+
+.content-background {
+  flex: 1;
+  padding: 40px 24px;
+}
+
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto; 
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 16px;
+  margin-left: 24px; 
+}
+
+.fab-button {
+  position: fixed !important;
+  bottom: 24px;
+  right: 24px;
+  border-radius: 50%;
+  background-color: #e53935 !important; 
+  color: white !important;
+  z-index: 10;
+}

@@ -1,0 +1,49 @@
+<h2 mat-dialog-title class="dialog-title">{{ isEdit() ? 'Editar usuário' : 'Adicionar novo usuário' }}</h2>
+
+<mat-dialog-content class="dialog-content">
+  <form class="user-form" [formGroup]="form" (ngSubmit)="submitForm()">
+    <app-input-component
+      [errorMessage]="form.get('email')?.invalid && form.get('email')?.touched ? getErrorMessage('email') : ''"
+      [control]="form.get('email')" [type]="'email'" label="Usuário (e-mail) *">
+    </app-input-component>
+
+    <app-input-component
+      [errorMessage]="form.get('name')?.invalid && form.get('name')?.touched ? getErrorMessage('name') : ''"
+      [control]="form.get('name')" [type]="'text'" label="Nome completo *">
+    </app-input-component>
+
+    <div class="row">
+      <app-input-component
+        [errorMessage]="form.get('cpf')?.invalid && form.get('cpf')?.touched ? getErrorMessage('cpf') : ''"
+        [control]="form.get('cpf')" [type]="'text'" label="CPF *">
+      </app-input-component>
+
+      <app-input-component
+        [errorMessage]="form.get('phone')?.invalid && form.get('phone')?.touched ? getErrorMessage('phone') : ''"
+        [control]="form.get('phone')" [type]="'tel'" label="Número do telefone *">
+      </app-input-component>
+
+      <mat-form-field class="select-field">
+        <mat-label>Tipo *</mat-label>
+        <mat-select formControlName="phoneType">
+          <mat-option value="CELULAR">CELULAR</mat-option>
+          <mat-option value="FIXO">FIXO</mat-option>
+        </mat-select>
+        @if (form.get('phoneType')?.invalid && form.get('phoneType')?.touched) {
+        <mat-error>{{ getErrorMessage('phoneType') }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+  </form>
+
+  <p class="helper-text">
+    O usuário receberá uma senha provisória para acesso ao sistema por SMS.
+  </p>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button mat-flat-button color="primary" class="save-btn" [disabled]="form.invalid || isLoading()"
+    (click)="submitForm()">
+    {{ isLoading() ? 'SALVANDO...' : 'SALVAR' }}
+  </button>
+</mat-dialog-actions>

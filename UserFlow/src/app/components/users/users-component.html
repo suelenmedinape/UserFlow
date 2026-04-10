@@ -1,0 +1,35 @@
+@if (isLoading()) {
+<div class="loading-container">
+  <mat-spinner diameter="40"></mat-spinner>
+  <p>Carregando usuários...</p>
+</div>
+} @else if (error()) {
+<div class="error-container">
+  <mat-icon color="warn">error_outline</mat-icon>
+  <p>{{ error() }}</p>
+  <button mat-flat-button color="primary" (click)="fetchUsers(searchControl.value || '')">Tentar Novamente</button>
+</div>
+} @else {
+@for (user of paginatedUsers(); track user.id) {
+<div class="user-row mat-elevation-z1">
+  <div class="user-avatar">
+    <mat-icon>person</mat-icon>
+  </div>
+  <div class="user-name">{{ user.name }}</div>
+  <div class="user-email">{{ user.email }}</div>
+  <div class="user-actions">
+    <button mat-icon-button aria-label="Editar usuário" (click)="openEditUserModal(user)">
+      <mat-icon fontIcon="edit"></mat-icon>
+    </button>
+  </div>
+</div>
+} @empty {
+<div class="empty-state">
+  <mat-icon>group_off</mat-icon>
+  <p>Nenhum usuário encontrado.</p>
+</div>
+}
+<mat-paginator [length]="users().length" [pageSize]="pageSize()" [pageSizeOptions]="[5, 10, 25]"
+  (page)="onPageChange($event)" aria-label="Selecionar página">
+</mat-paginator>
+}

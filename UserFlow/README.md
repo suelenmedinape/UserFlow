@@ -1,59 +1,97 @@
 # UserFlow
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+Aplicação Angular de listagem e gerenciamento de usuários, desenvolvida como desafio técnico.
 
-## Development server
+## Stack
 
-To start a local development server, run:
+- **Angular 21** com Standalone Components e Signals
+- **Angular Material** para componentes de UI
+- **RxJS** para gerenciamento de fluxos assíncronos
+- **Vitest** para testes unitários
+- **JSON Server** como API mockada
+- **Docker** para containerização
+
+---
+
+## Rodando localmente (sem Docker)
+
+### 1. Instalar dependências
+
+```bash
+npm install
+```
+
+### 2. Subir a API mockada
+
+```bash
+npx json-server --watch db.json --port 3000
+```
+
+A API estará disponível em `http://localhost:3000/users`.
+
+### 3. Subir a aplicação Angular
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Acesse `http://localhost:4200`.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Rodando com Docker
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Qualquer pessoa — comando único
 
 ```bash
-ng generate --help
+docker compose up --build
 ```
 
-## Building
+Não precisa ter Node.js instalado. Apenas Docker.
 
-To build the project run:
+| Serviço      | URL                          |
+|--------------|------------------------------|
+| Angular app  | http://localhost:4200        |
+| JSON Server  | http://localhost:3000/users  |
+
+### Desenvolvimento local (com hot reload)
+
+Para quem quer editar o código e ver mudanças em tempo real:
 
 ```bash
-ng build
+docker compose --profile dev up
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+> Requer a porta 4200 livre. Mudanças nos arquivos são refletidas automaticamente.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Testes
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+Cobertura mínima: **60%**, utilizando [Vitest](https://vitest.dev/).
 
-For end-to-end (e2e) testing, run:
+---
+
+## Endpoints da API mockada
+
+| Método   | Rota            | Descrição              |
+|----------|-----------------|------------------------|
+| `GET`    | `/users`        | Lista todos os usuários |
+| `GET`    | `/users/:id`    | Busca usuário por ID   |
+| `POST`   | `/users`        | Cria novo usuário      |
+| `PUT`    | `/users/:id`    | Atualiza usuário       |
+| `DELETE` | `/users/:id`    | Remove usuário         |
+
+---
+
+## Build para produção
 
 ```bash
-ng e2e
+ng build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Os artefatos são gerados em `dist/UserFlow/browser/`.
