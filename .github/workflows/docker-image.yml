@@ -9,6 +9,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./UserFlow
 
     steps:
     - name: Fazer o Checkout do código
@@ -19,6 +22,7 @@ jobs:
       with:
         node-version: '22' 
         cache: 'npm' 
+        cache-dependency-path: './UserFlow/package-lock.json'
 
     - name: Instalar dependências
       run: npm ci
