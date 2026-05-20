@@ -25,7 +25,7 @@ jobs:
         cache-dependency-path: './UserFlow/package-lock.json'
 
     - name: Instalar dependências
-      run: npm ci
+      run: npm ci --legacy-peer-deps
 
     - name: Executar testes do Vitest
       run: npm run test
